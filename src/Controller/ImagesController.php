@@ -6,6 +6,7 @@ use App\Entity\Images;
 use App\Form\ImagesType;
 use App\Repository\ImagesRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,6 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ImagesController extends AbstractController
 {
     #[Route('/', name: 'app_images_index', methods: ['GET'])]
+    #[IsGranted("ROLE_ADMIN")]
     public function index(ImagesRepository $imagesRepository): Response
     {
         return $this->render('images/index.html.twig', [
