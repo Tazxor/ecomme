@@ -1,0 +1,9 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+# config/routes.yaml
+
+inscription:
+    path: /inscription
+    controller: 'App\Controller\InscriptionController::inscription'
+    methods: [GET, POST]
