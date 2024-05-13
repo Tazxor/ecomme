@@ -76,6 +76,18 @@ class ImagesController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $uploadedFile = $form->get('file')->getData();
+            if ($uploadedFile) {
+                $newFilename = uniqid().'.'.$uploadedFile->guessExtension();
+                // Déplace le nouveau fichier vers le répertoire cible
+                $uploadedFile->move(
+                    $this->getParameter('kernel.project_dir') . '/public/images/products',
+                    $newFilename
+                );
+                // Met à jour le champ "nom" de l'image avec le nom du nouveau fichier
+                $image->setNom($newFilename);
+            }
             $entityManager->flush();
 
             return $this->redirectToRoute('app_images_index', [], Response::HTTP_SEE_OTHER);
