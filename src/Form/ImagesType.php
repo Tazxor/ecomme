@@ -24,12 +24,12 @@ class ImagesType extends AbstractType
                 'required' => false,
                 'mapped' => false, // Ne pas mapper ce champ à une propriété de l'entité
                 'attr' => [
-                    'accept' => '.jpeg,.png', // Types de fichiers acceptés
+                    'accept' => '.jpeg,.png,.jpg', // Types de fichiers acceptés
                 ],
                 // Contrainte de validation pour vérifier le type MIME du fichier
                 'constraints' => [
                     new \Symfony\Component\Validator\Constraints\File([
-                        'mimeTypes' => ['image/jpeg', 'image/png'], // Types MIME acceptés
+                        'mimeTypes' => ['image/jpeg', 'image/png', 'image/jpg'], // Types MIME acceptés
                         'mimeTypesMessage' => 'Veuillez télécharger une image au format JPEG ou PNG.', // Message d'erreur en cas de type MIME invalide
                     ]),
                 ],

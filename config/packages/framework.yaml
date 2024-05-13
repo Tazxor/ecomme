@@ -22,3 +22,12 @@ when@test:
         test: true
         session:
             storage_factory_id: session.storage.factory.mock_file
+
+ # Configure the filesystem to store uploaded images
+    filesystem:
+        default: local
+        adapters:
+            local_adapter:
+                local:
+                    directory: '%kernel.project_dir%/public/images/products'
+        stream_wrapper: ~

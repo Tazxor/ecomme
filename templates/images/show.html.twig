@@ -15,6 +15,11 @@
                 <th>Nom</th>
                 <td>{{ image.nom }}</td>
             </tr>
+            <tr>
+                <th>Image</th>
+ ²              <td><img src="{{ asset('images/products/' ~ image.nom) }}" alt={{ image.nom }} height="100px" width="100px"></td>
+            </tr>
+
         </tbody>
     </table>
 

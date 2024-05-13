@@ -14,15 +14,17 @@
             </tr>
         </thead>
         <tbody>
-        {% for image in images %}
-            <tr>
-                <td>{{ image.id }}</td>
-                <td>{{ image.nom }}</td>
-                <td>
-                    <a href="{{ path('app_images_show', {'id': image.id}) }}">show</a>
-                    <a href="{{ path('app_images_edit', {'id': image.id}) }}">edit</a>
-                </td>
-            </tr>
+
+    {% for image in images %}
+        <tr>
+            <td>{{ image.id }}</td>
+            <td>{{ image.nom }}</td>
+            <td><img src="{{ asset('images/products/' ~ image.nom) }}" alt={{ image.nom }} height="100px" width="100px"></td>
+            <td>
+                <a href="{{ path('app_images_show', {'id': image.id}) }}">show</a>
+                <a href="{{ path('app_images_edit', {'id': image.id}) }}">edit</a>
+            </td>
+        </tr>
         {% else %}
             <tr>
                 <td colspan="3">no records found</td>
