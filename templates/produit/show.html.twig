@@ -27,6 +27,18 @@
                 <th>Quantite</th>
                 <td>{{ produit.quantite }}</td>
             </tr>
+            <tr>
+                <th>Les Images</th>
+                 <td>
+                    <ul>
+                        {% for image in produit.images %}
+                            <li>
+                                <img src="{{ asset('images/products/' ~ image.nom) }}" alt={{image.nom}} height="100px" width="100px">
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
         </tbody>
     </table>
 

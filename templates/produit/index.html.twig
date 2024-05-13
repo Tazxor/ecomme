@@ -24,6 +24,15 @@
                 <td>{{ produit.prix }}</td>
                 <td>{{ produit.description }}</td>
                 <td>{{ produit.quantite }}</td>
+                 <td>
+                    <ul>
+                        {% for image in produit.images %}
+                            <li>
+                                <img src="{{ asset('images/products/' ~ image.nom) }}" alt={{image.nom}} height="100px" width="100px">
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </td>
                 <td>
                     <a href="{{ path('app_produit_show', {'id': produit.id}) }}">show</a>
                     <a href="{{ path('app_produit_edit', {'id': produit.id}) }}">edit</a>
